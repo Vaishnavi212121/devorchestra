@@ -7,3 +7,4 @@ aiohttp==3.9.1
 redis==5.0.1
 pytest==7.4.3
 pydantic>=2.9.0
+groq==0.4.2
