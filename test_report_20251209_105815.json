@@ -1,0 +1,191 @@
+{
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 0,
+    "avg_execution_time": 18.077686,
+    "avg_speedup": 796.6236555244673,
+    "avg_success_rate": 62.5,
+    "timestamp": "2025-12-09T10:58:15.312746"
+  },
+  "detailed_results": [
+    {
+      "test_id": "test_1",
+      "test_name": "Simple Login Page",
+      "execution_time": 18.053792,
+      "speedup": 797.6163677968594,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "d540dd42-f33a-4057-aa5e-62db8d3419b3",
+        "requirements": {
+          "title": "As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.",
+          "user_role": "user",
+          "user_goal": "As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.",
+          "user_benefit": "",
+          "frontend_requirements": "Create React components with: page, form, show, input. User story: As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.\nAs a user, I want a login page with email and password fields, \n        so that I can securely ",
+          "backend_requirements": "Create Flask API with: validate. Requirements: As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.\nAs a user, I want a login page with email and password fields, \n        so that I can securely ",
+          "database_requirements": "Design database schema for: As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inp",
+          "acceptance_criteria": [
+            "As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.\nAs a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.\n"
+          ],
+          "raw_description": "As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.",
+          "dependencies": [
+            "authentication",
+            "email",
+            "pagination"
+          ],
+          "source": "raw_text"
+        },
+        "legacy_analysis": null,
+        "integration_report": {
+          "status": "failed",
+          "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+        },
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          },
+          "database": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 18.05,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 797.73,
+          "time_saved_hours": 3.99,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_2",
+      "test_name": "User Dashboard",
+      "execution_time": 17.895967,
+      "speedup": 804.6505673596739,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "ebb13de9-9367-4492-b7f2-9220c05dbfe9",
+        "requirements": {
+          "title": "As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.",
+          "user_role": "logged-in user",
+          "user_goal": "see a dashboard displaying my profile ",
+          "user_benefit": "",
+          "frontend_requirements": "Create React components with: button, display, form. User story: As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\nAs a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activiti",
+          "backend_requirements": "Create API endpoints for: As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\nAs a l",
+          "database_requirements": "Design database schema for: As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\nAs a l",
+          "acceptance_criteria": [
+            "As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\nAs a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\n"
+          ],
+          "raw_description": "As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.",
+          "dependencies": [
+            "file_upload"
+          ],
+          "source": "raw_text"
+        },
+        "legacy_analysis": null,
+        "integration_report": {
+          "status": "failed",
+          "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+        },
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          },
+          "database": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 17.89,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 804.75,
+          "time_saved_hours": 4.0,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_3",
+      "test_name": "Todo List Manager",
+      "execution_time": 18.283299,
+      "speedup": 787.6040314168685,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "269d170e-4a3d-48d5-9614-61f2610dbc4f",
+        "requirements": {
+          "title": "As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.",
+          "user_role": "user",
+          "user_goal": "create, edit, and delete todo items with due dates,",
+          "user_benefit": "I can manage my tasks effectively",
+          "frontend_requirements": "Create a user interface for: As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by",
+          "backend_requirements": "Create Flask API with: create, delete. Requirements: As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.\nAs a user, I want to create, edit, and delete todo items with due dates, \n        so that I",
+          "database_requirements": "Create PostgreSQL schema for: store, data, database. Details: As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.\nAs a user, I want to create, edit, and delete todo items with due dates, \n        so that I",
+          "acceptance_criteria": [
+            "As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.\nAs a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.\n"
+          ],
+          "raw_description": "As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.",
+          "dependencies": [
+            "search"
+          ],
+          "source": "raw_text"
+        },
+        "legacy_analysis": null,
+        "integration_report": {
+          "status": "failed",
+          "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+        },
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          },
+          "database": {
+            "status": "failed",
+            "error": "Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information."
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 18.28,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 787.78,
+          "time_saved_hours": 3.99,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    }
+  ]
+}

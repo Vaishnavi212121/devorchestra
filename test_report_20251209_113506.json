@@ -1,0 +1,191 @@
+{
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 0,
+    "avg_execution_time": 1.0223156666666666,
+    "avg_speedup": 40235.435454898725,
+    "avg_success_rate": 62.5,
+    "timestamp": "2025-12-09T11:35:06.484664"
+  },
+  "detailed_results": [
+    {
+      "test_id": "test_1",
+      "test_name": "Simple Login Page",
+      "execution_time": 2.566131,
+      "speedup": 5611.560750405962,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "a00abac8-f368-417f-8019-8c35f63fe79b",
+        "requirements": {
+          "title": "As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.",
+          "user_role": "user",
+          "user_goal": "As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.",
+          "user_benefit": "",
+          "frontend_requirements": "Create React components with: form, page, input, show. User story: As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.\nAs a user, I want a login page with email and password fields, \n        so that I can securely ",
+          "backend_requirements": "Create Flask API with: validate. Requirements: As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.\nAs a user, I want a login page with email and password fields, \n        so that I can securely ",
+          "database_requirements": "Design database schema for: As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inp",
+          "acceptance_criteria": [
+            "As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.\nAs a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.\n"
+          ],
+          "raw_description": "As a user, I want a login page with email and password fields, \n        so that I can securely access my account. The page should validate email format \n        and show error messages for invalid inputs.",
+          "dependencies": [
+            "authentication",
+            "email",
+            "pagination"
+          ],
+          "source": "raw_text"
+        },
+        "legacy_analysis": null,
+        "integration_report": {
+          "status": "failed",
+          "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+        },
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "'FrontendAgent' object has no attribute '_publish_status'"
+          },
+          "backend": {
+            "status": "failed",
+            "error": "'BackendAgent' object has no attribute '_publish_status'"
+          },
+          "database": {
+            "status": "failed",
+            "error": "'DatabaseAgent' object has no attribute '_publish_status'"
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 2.56,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 5624.0,
+          "time_saved_hours": 4.0,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_2",
+      "test_name": "User Dashboard",
+      "execution_time": 0.243706,
+      "speedup": 59087.58914429681,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "25bafdcf-e3e2-490b-9cef-05b814dcda23",
+        "requirements": {
+          "title": "As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.",
+          "user_role": "logged-in user",
+          "user_goal": "see a dashboard displaying my profile ",
+          "user_benefit": "",
+          "frontend_requirements": "Create React components with: form, display, button. User story: As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\nAs a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activiti",
+          "backend_requirements": "Create API endpoints for: As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\nAs a l",
+          "database_requirements": "Design database schema for: As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\nAs a l",
+          "acceptance_criteria": [
+            "As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\nAs a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.\n"
+          ],
+          "raw_description": "As a logged-in user, I want to see a dashboard displaying my profile \n        information, recent activities, and quick action buttons, so that I can quickly \n        access important features.",
+          "dependencies": [
+            "file_upload"
+          ],
+          "source": "raw_text"
+        },
+        "legacy_analysis": null,
+        "integration_report": {
+          "status": "failed",
+          "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+        },
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "'FrontendAgent' object has no attribute '_publish_status'"
+          },
+          "backend": {
+            "status": "failed",
+            "error": "'BackendAgent' object has no attribute '_publish_status'"
+          },
+          "database": {
+            "status": "failed",
+            "error": "'DatabaseAgent' object has no attribute '_publish_status'"
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 0.24,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 60251.05,
+          "time_saved_hours": 4.0,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_3",
+      "test_name": "Todo List Manager",
+      "execution_time": 0.25711,
+      "speedup": 56007.15646999339,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "1f01e243-e4a1-4b1d-9d9a-de72f8e9f18d",
+        "requirements": {
+          "title": "As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.",
+          "user_role": "user",
+          "user_goal": "create, edit, and delete todo items with due dates,",
+          "user_benefit": "I can manage my tasks effectively",
+          "frontend_requirements": "Create a user interface for: As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by",
+          "backend_requirements": "Create Flask API with: create, delete. Requirements: As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.\nAs a user, I want to create, edit, and delete todo items with due dates, \n        so that I",
+          "database_requirements": "Create PostgreSQL schema for: store, database, data. Details: As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.\nAs a user, I want to create, edit, and delete todo items with due dates, \n        so that I",
+          "acceptance_criteria": [
+            "As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.\nAs a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.\n"
+          ],
+          "raw_description": "As a user, I want to create, edit, and delete todo items with due dates, \n        so that I can manage my tasks effectively. The system should store todos in a database \n        and allow filtering by status.",
+          "dependencies": [
+            "search"
+          ],
+          "source": "raw_text"
+        },
+        "legacy_analysis": null,
+        "integration_report": {
+          "status": "failed",
+          "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+        },
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "'FrontendAgent' object has no attribute '_publish_status'"
+          },
+          "backend": {
+            "status": "failed",
+            "error": "'BackendAgent' object has no attribute '_publish_status'"
+          },
+          "database": {
+            "status": "failed",
+            "error": "'DatabaseAgent' object has no attribute '_publish_status'"
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 0.25,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 56787.48,
+          "time_saved_hours": 4.0,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    }
+  ]
+}

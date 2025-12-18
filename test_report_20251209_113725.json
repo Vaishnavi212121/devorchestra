@@ -1,0 +1,132 @@
+{
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 0,
+    "avg_execution_time": 2.3390653333333336,
+    "avg_speedup": 13868.629602601963,
+    "avg_success_rate": 62.5,
+    "timestamp": "2025-12-09T11:37:25.880583"
+  },
+  "detailed_results": [
+    {
+      "test_id": "test_1",
+      "test_name": "Simple Login Page",
+      "execution_time": 5.539974,
+      "speedup": 2599.2901771741167,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "365b5bd5-080b-4ae7-8f19-f39640f9c9cd",
+        "requirements": {},
+        "legacy_analysis": null,
+        "integration_report": {},
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "database": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 5.54,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 2601.59,
+          "time_saved_hours": 4.0,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_2",
+      "test_name": "User Dashboard",
+      "execution_time": 0.752847,
+      "speedup": 19127.39241837983,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "c13c1228-c2b2-4da5-9f5a-73ae0a29b15f",
+        "requirements": {},
+        "legacy_analysis": null,
+        "integration_report": {},
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "database": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 0.75,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 19214.14,
+          "time_saved_hours": 4.0,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_3",
+      "test_name": "Todo List Manager",
+      "execution_time": 0.724375,
+      "speedup": 19879.206212251942,
+      "passed_checks": 5,
+      "total_checks": 8,
+      "success_rate": 62.5,
+      "result": {
+        "task_id": "b11ff813-d42b-41a2-8050-b4db82bb5fb1",
+        "requirements": {},
+        "legacy_analysis": null,
+        "integration_report": {},
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "database": {
+            "status": "failed",
+            "error": "404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          }
+        },
+        "tests": {},
+        "quality_summary": {},
+        "metrics": {
+          "execution_time_seconds": 0.72,
+          "estimated_manual_hours": 4,
+          "speedup_factor": 20024.45,
+          "time_saved_hours": 4.0,
+          "agents_used": 8,
+          "phases_completed": 7
+        },
+        "status": "completed"
+      }
+    }
+  ]
+}

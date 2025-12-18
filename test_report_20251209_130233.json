@@ -1,0 +1,93 @@
+{
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 0,
+    "avg_execution_time": 1.1942613333333334,
+    "avg_speedup": 25951.334994769597,
+    "avg_success_rate": 37.5,
+    "timestamp": "2025-12-09T13:02:33.740605"
+  },
+  "detailed_results": [
+    {
+      "test_id": "test_1",
+      "test_name": "Simple Login Page",
+      "execution_time": 2.790406,
+      "speedup": 5160.539362372358,
+      "passed_checks": 3,
+      "total_checks": 8,
+      "success_rate": 37.5,
+      "result": {
+        "task_id": "96957c1b-1aad-4dba-a072-187fff56bd7c",
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "database": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          }
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_2",
+      "test_name": "User Dashboard",
+      "execution_time": 0.397573,
+      "speedup": 36219.76341451758,
+      "passed_checks": 3,
+      "total_checks": 8,
+      "success_rate": 37.5,
+      "result": {
+        "task_id": "f7641d8e-7564-49d9-9ec4-d5b68d7d19d2",
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "database": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          }
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_3",
+      "test_name": "Todo List Manager",
+      "execution_time": 0.394805,
+      "speedup": 36473.70220741885,
+      "passed_checks": 3,
+      "total_checks": 8,
+      "success_rate": 37.5,
+      "result": {
+        "task_id": "c0f1cef9-ebab-4871-87fb-6ccb08747dd9",
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          },
+          "database": {
+            "status": "failed",
+            "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+          }
+        },
+        "status": "completed"
+      }
+    }
+  ]
+}

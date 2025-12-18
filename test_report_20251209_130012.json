@@ -1,0 +1,93 @@
+{
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 0,
+    "avg_execution_time": 0.03628566666666667,
+    "avg_speedup": 399416.2424257505,
+    "avg_success_rate": 37.5,
+    "timestamp": "2025-12-09T13:00:12.965294"
+  },
+  "detailed_results": [
+    {
+      "test_id": "test_1",
+      "test_name": "Simple Login Page",
+      "execution_time": 0.032297,
+      "speedup": 445861.84475338267,
+      "passed_checks": 3,
+      "total_checks": 8,
+      "success_rate": 37.5,
+      "result": {
+        "task_id": "d4acda55-b4d2-4936-9ed8-f758f31357f5",
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          },
+          "database": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          }
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_2",
+      "test_name": "User Dashboard",
+      "execution_time": 0.038544,
+      "speedup": 373599.00373599003,
+      "passed_checks": 3,
+      "total_checks": 8,
+      "success_rate": 37.5,
+      "result": {
+        "task_id": "eb98c5c9-5479-4f8d-bbd8-1bc090bb3a52",
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          },
+          "database": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          }
+        },
+        "status": "completed"
+      }
+    },
+    {
+      "test_id": "test_3",
+      "test_name": "Todo List Manager",
+      "execution_time": 0.038016,
+      "speedup": 378787.8787878788,
+      "passed_checks": 3,
+      "total_checks": 8,
+      "success_rate": 37.5,
+      "result": {
+        "task_id": "ede8017e-4fd1-4120-af69-482cd3f868c0",
+        "generated_code": {
+          "frontend": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          },
+          "backend": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          },
+          "database": {
+            "status": "failed",
+            "error": "AI Model is not initialized. Check GOOGLE_API_KEY."
+          }
+        },
+        "status": "completed"
+      }
+    }
+  ]
+}

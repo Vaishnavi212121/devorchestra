@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOrchestra v2.0 | AutoDev Hackathon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .code-view { white-space: pre-wrap; word-wrap: break-word; }
+        .agent-card { transition: all 0.3s ease; }
+        .agent-card.processing { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 font-sans">
+    
+    <nav class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-robot text-purple-400 text-2xl"></i>
+                    <span class="font-bold text-xl tracking-tight">DevOrchestra v2.0</span>
+                    <span class="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full ml-2">
+                        <i class="fa-solid fa-circle text-[6px] animate-pulse"></i> Live
+                    </span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div id="wsStatus" class="text-xs text-slate-400">
+                        <i class="fa-solid fa-plug"></i> Connecting...
+                    </div>
+                    <div class="text-xs text-slate-400">Team RoverXperts | Auto-250312</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+        
+        <!-- Performance Metrics Banner -->
+        <div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl shadow-lg p-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="text-3xl font-bold" id="totalTasks">0</div>
+                    <div class="text-sm opacity-80">Total Tasks</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold" id="successRate">0%</div>
+                    <div class="text-sm opacity-80">Success Rate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold" id="avgTime">0s</div>
+                    <div class="text-sm opacity-80">Avg Execution</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-yellow-300" id="speedup">0x</div>
+                    <div class="text-sm opacity-80">Speedup vs Manual</div>
+                </div>
+            </div>
+        </div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Input Section -->
+            <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                    <h2 class="font-semibold text-slate-700 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-nib text-blue-500"></i> User Story Input
+                    </h2>
+                </div>
+                <div class="p-6 space-y-4">
+                    <textarea 
+                        id="story" 
+                        rows="6" 
+                        class="w-full p-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all resize-none font-mono text-sm" 
+                        placeholder="Example: Build a complete E-commerce Inventory System with add/remove items and stock alerts...">Build a complete E-commerce Inventory System with add/remove items and stock alerts.</textarea>
+
+                    <button onclick="generate()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bolt"></i> Orchestrate 10 AI Agents
+                    </button>
+                </div>
+            </div>
+
+            <!-- Live Agent Monitor -->
+            <div class="bg-slate-900 text-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div class="px-6 py-4 border-b border-slate-700 bg-slate-800">
+                    <h2 class="font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-network-wired text-green-400"></i> Live Agents (10)
+                    </h2>
+                </div>
+                <div id="agentGrid" class="p-4 space-y-2 overflow-y-auto flex-1 max-h-96">
+                    <div class="text-center text-slate-500 text-sm py-10">Loading agents...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activity Log -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex justify-between items-center">
+                <h2 class="font-semibold text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-stream text-purple-500"></i> Activity Stream
+                </h2>
+                <button onclick="clearLog()" class="text-xs text-slate-500 hover:text-red-600">
+                    <i class="fa-solid fa-trash"></i> Clear
+                </button>
+            </div>
+            <div id="activityLog" class="p-4 space-y-1 max-h-60 overflow-y-auto bg-slate-900 text-white font-mono text-xs">
+                <div class="text-slate-500">Ready. Waiting for activity...</div>
+            </div>
+        </section>
+
+        <!-- Loading Indicator -->
+        <div id="loading" class="hidden text-center py-12">
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-slate-200 border-t-purple-600 mb-4"></div>
+            <p class="text-slate-500 font-medium animate-pulse">Orchestrating agents...</p>
+            <p class="text-xs text-slate-400 mt-2" id="loadingProgress">Starting...</p>
+        </div>
+
+        <!-- Results Section -->
+        <section id="results" class="hidden space-y-6">
+            <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold text-slate-800">Generated Solution</h3>
+                <div class="flex gap-4 text-sm">
+                    <span class="text-slate-500"><i class="fa-regular fa-clock"></i> <span id="execTime">0</span>s</span>
+                    <span class="text-green-600 font-bold"><i class="fa-solid fa-rocket"></i> <span id="speedupDisplay">0x</span> faster</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden min-h-[500px] flex flex-col">
+                <div class="flex border-b border-slate-200 bg-slate-50 overflow-x-auto">
+                    <button onclick="switchTab('frontend')" class="tab-btn active px-6 py-3 text-sm font-medium border-b-2 border-purple-600 text-purple-600 bg-white whitespace-nowrap" data-tab="frontend">
+                        <i class="fa-brands fa-react mr-2"></i>Frontend
+                    </button>
+                    <button onclick="switchTab('backend')" class="tab-btn px-6 py-3 text-sm font-medium border-b-2 border-transparent text-slate-500 whitespace-nowrap" data-tab="backend">
+                        <i class="fa-brands fa-python mr-2"></i>Backend
+                    </button>
+                    <button onclick="switchTab('database')" class="tab-btn px-6 py-3 text-sm font-medium border-b-2 border-transparent text-slate-500 whitespace-nowrap" data-tab="database">
+                        <i class="fa-solid fa-database mr-2"></i>Database
+                    </button>
+                </div>
+
+                <div class="relative flex-1 bg-slate-900 overflow-hidden">
+                    <pre id="code-frontend" class="code-view w-full h-full p-6 overflow-auto text-xs font-mono text-green-400 block"></pre>
+                    <pre id="code-backend" class="code-view w-full h-full p-6 overflow-auto text-xs font-mono text-blue-400 hidden"></pre>
+                    <pre id="code-database" class="code-view w-full h-full p-6 overflow-auto text-xs font-mono text-orange-400 hidden"></pre>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const API = window.location.origin;
+        let ws = null;
+
+        const agentIcons = {
+            orchestrator: 'fa-sitemap',
+            ado_parser: 'fa-file-lines',
+            frontend_agent: 'fa-desktop',
+            backend_agent: 'fa-server',
+            database_agent: 'fa-database',
+            testing_agent: 'fa-check-double',
+            integration_agent: 'fa-plug',
+            legacy_agent: 'fa-code-branch',
+            prompt_refiner: 'fa-brain',
+            code_quality_agent: 'fa-chart-line'
+        };
+
+        function connectWebSocket() {
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
+            
+            ws.onopen = () => {
+                document.getElementById('wsStatus').innerHTML = '<i class="fa-solid fa-plug text-green-400"></i> Connected';
+                logActivity('system', 'WebSocket connected', 'success');
+                loadStatus();
+                loadPerformanceMetrics();
+            };
+            
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                handleRealtimeUpdate(data);
+            };
+            
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+                logActivity('system', 'Connection error', 'error');
+            };
+            
+            ws.onclose = () => {
+                document.getElementById('wsStatus').innerHTML = '<i class="fa-solid fa-plug text-yellow-400"></i> Reconnecting...';
+                setTimeout(connectWebSocket, 3000);
+            };
+        }
+
+        function handleRealtimeUpdate(data) {
+            console.log('📥 WS Message:', data);
+            
+            if (data.type === 'progress') {
+                document.getElementById('loadingProgress').textContent = data.message || 'Processing...';
+                logActivity(data.agent || 'system', data.message, 'info');
+                loadStatus(); // Refresh agent status
+            } 
+            else if (data.type === 'complete') {
+                showResults(data);
+                loadPerformanceMetrics();
+            } 
+            else if (data.type === 'error') {
+                alert('Error: ' + data.message);
+                document.getElementById('loading').classList.add('hidden');
+                logActivity('system', 'Error: ' + data.message, 'error');
+            }
+        }
+
+        function showResults(data) {
+            console.log('✅ Showing results:', data);
+            
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('results').classList.remove('hidden');
+
+            const code = data.generated_code || {};
+            
+            // ✅ FIXED: Better code extraction
+            const frontendCode = extractCode(code.frontend) || '// No frontend code generated';
+            const backendCode = extractCode(code.backend) || '# No backend code generated';
+            const databaseCode = extractCode(code.database) || '-- No database schema generated';
+            
+            console.log('Frontend code length:', frontendCode.length);
+            console.log('Backend code length:', backendCode.length);
+            console.log('Database code length:', databaseCode.length);
+            
+            document.getElementById('code-frontend').textContent = frontendCode;
+            document.getElementById('code-backend').textContent = backendCode;
+            document.getElementById('code-database').textContent = databaseCode;
+
+            document.getElementById('execTime').textContent = (data.execution_time_seconds || 0).toFixed(1);
+            document.getElementById('speedupDisplay').textContent = data.speedup || 'N/A';
+
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            logActivity('system', 'Results loaded successfully', 'success');
+        }
+
+        function extractCode(obj) {
+            if (!obj) return null;
+            
+            // Handle direct string
+            if (typeof obj === 'string') return obj;
+            
+            // Handle nested result structure
+            if (obj.result) {
+                const result = obj.result;
+                
+                // Try all possible keys
+                const keys = ['component_code', 'api_code', 'schema_sql', 'code'];
+                for (const key of keys) {
+                    if (result[key]) return result[key];
+                }
+                
+                // If result is a string
+                if (typeof result === 'string') return result;
+            }
+            
+            // Try direct keys
+            if (obj.component_code) return obj.component_code;
+            if (obj.api_code) return obj.api_code;
+            if (obj.schema_sql) return obj.schema_sql;
+            
+            // Last resort
+            return JSON.stringify(obj, null, 2);
+        }
+
+        function logActivity(agent, message, level = 'info') {
+            const log = document.getElementById('activityLog');
+            const timestamp = new Date().toLocaleTimeString();
+            
+            const colors = { 'info': 'text-blue-400', 'success': 'text-green-400', 'error': 'text-red-400' };
+            const entry = document.createElement('div');
+            entry.className = `${colors[level]} flex items-start gap-2`;
+            entry.innerHTML = `<span class="text-slate-500">[${timestamp}]</span><span class="text-slate-300">${agent}:</span><span>${message}</span>`;
+            
+            log.insertBefore(entry, log.firstChild);
+            if (log.children.length > 100) log.removeChild(log.lastChild);
+        }
+
+        function clearLog() {
+            document.getElementById('activityLog').innerHTML = '<div class="text-slate-500">Log cleared.</div>';
+        }
+
+        async function loadStatus() {
+            try {
+                const res = await fetch(`${API}/agents/status`);
+                const data = await res.json();
+                renderAgents(data);
+            } catch (error) {
+                console.error('Status load error:', error);
+            }
+        }
+
+        async function loadPerformanceMetrics() {
+            try {
+                const res = await fetch(`${API}/metrics/performance`);
+                const data = await res.json();
+                
+                document.getElementById('totalTasks').textContent = data.total_tasks_7d || 0;
+                document.getElementById('successRate').textContent = data.success_rate || '0%';
+                document.getElementById('avgTime').textContent = data.avg_execution_time || '0s';
+                document.getElementById('speedup').textContent = data.estimated_speedup || '0x';
+            } catch (error) {
+                console.error('Metrics load error:', error);
+            }
+        }
+
+        function renderAgents(data) {
+            const container = document.getElementById('agentGrid');
+            const agents = Object.entries(data).filter(([key, value]) => 
+                key !== 'status' && key !== 'system' && typeof value === 'object'
+            );
+
+            if (agents.length === 0) {
+                container.innerHTML = '<div class="text-slate-500 text-sm text-center py-8">No agents loaded</div>';
+                return;
+            }
+
+            container.innerHTML = agents.map(([agentKey, info]) => {
+                const icon = agentIcons[agentKey] || 'fa-robot';
+                const isProcessing = info.status === 'processing';
+                const statusColor = isProcessing ? 'text-yellow-400 animate-pulse' : 'text-green-400';
+                const statusText = isProcessing ? 'Working...' : 'Ready';
+                const cardClass = isProcessing ? 'agent-card processing border-yellow-500/50' : 'agent-card border-slate-700';
+
+                return `
+                <div class="${cardClass} flex items-center justify-between p-3 rounded-lg border bg-slate-800 transition-all">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded bg-slate-700 flex items-center justify-center">
+                            <i class="fa-solid ${icon} text-sm text-purple-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold uppercase">${agentKey.replace('_', ' ')}</div>
+                            <div class="text-[10px] text-slate-500">${info.model || 'active'}</div>
+                        </div>
+                    </div>
+                    <span class="text-xs ${statusColor}">${statusText}</span>
+                </div>`;
+            }).join('');
+        }
+
+        async function generate() {
+            const story = document.getElementById('story').value.trim();
+            if (!story) {
+                alert('Please enter a user story.');
+                return;
+            }
+
+            document.getElementById('loading').classList.remove('hidden');
+            document.getElementById('results').classList.add('hidden');
+            
+            logActivity('user', `Starting: "${story.substring(0, 50)}..."`, 'info');
+
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ user_story: story }));
+            } else {
+                alert('WebSocket not connected. Please refresh the page.');
+            }
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if(btn.dataset.tab === tab) {
+                    btn.classList.add('text-purple-600', 'border-purple-600', 'bg-white');
+                    btn.classList.remove('text-slate-500', 'border-transparent');
+                } else {
+                    btn.classList.remove('text-purple-600', 'border-purple-600', 'bg-white');
+                    btn.classList.add('text-slate-500', 'border-transparent');
+                }
+            });
+            document.querySelectorAll('.code-view').forEach(view => {
+                view.classList.toggle('hidden', view.id !== `code-${tab}`);
+            });
+        }
+
+        // Initialize
+        connectWebSocket();
+        setInterval(loadStatus, 3000);
+        setInterval(loadPerformanceMetrics, 10000);
+    </script>
+</body>
+</html>
